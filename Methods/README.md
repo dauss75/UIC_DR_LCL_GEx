@@ -3,13 +3,6 @@
 ## Table of Contents
 
 - [PCA and Covariates](#pca_and_covariates)
-- [Test MINID](#Test-MINID)
-- [Process steps](#Process-steps)
-    - [Log on to BDDS Globus Genomics](#log-on-to-bdds-globus-genomics)
-    - [Generate API Key](#generate-api-key)
-    - [Import published workflows](#import-published-workflows)
-    - [Execute analysis](#execute-analysis)
-    - [Results](#results)
 
 ## PCA and Covariates
 
@@ -23,7 +16,7 @@ Describe how the effect of group was removed prior to performing PCA.
 
    2. as a sanity check, explore the variance explained for each PC to look at the distribution.
 
-   ![Screenshot](figure/figure1.eps)
+   ![Screenshot](figure/figure1.png)
 
    3. compute Pearson's correlation coefficient (r) between eigenvector and metadata. The p-value of 0.05 is considered as significant.
 
