@@ -8,12 +8,12 @@ Describe how the effect of group was removed prior to performing PCA.
 
       `prcomp(data_input, scale = FALSE, center = TRUE)`
 
-         - 1. as a sanity check, explore the variance explained for each PC to look at the distribution.
-         - 2. compute Pearson's correlation coefficient (r) between eigenvector and metadata. The p-value of 0.05 is considered as significant.
+   - 1. as a sanity check, explore the variance explained for each PC to look at the distribution.
+   - 2. compute Pearson's correlation coefficient (r) between eigenvector and metadata. The p-value of 0.05 is considered as significant.
             `cor(pca$rotation, metadata)`
-         - 3. Now, remove the group by retrieving the residual data from applying the linear regression model that yields the difference between the gene expression data of the dependent variable group (g) and the fitted values (g')
+   - 3. Now, remove the group by retrieving the residual data from applying the linear regression model that yields the difference between the gene expression data of the dependent variable group (g) and the fitted values (g')
             `summary(lm(data_input~group))$residual`
-         - 4. Then, repeat the step 2
+   - 4. Then, repeat the step 2
 
 
 
