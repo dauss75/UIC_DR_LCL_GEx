@@ -2,8 +2,8 @@
 
 ## Table of Contents
 
-- [PCA and Covariates](#pca_and_covariates)
-- [DE models with clinical covariates controlled](#DE_covariates)
+- [PCA and Covariates](#PCA-and-Covariates)
+- [DE models with clinical covariates controlled](#DE-models-with-clinical-covariates-controlled)
 
 ## PCA and Covariates
 
