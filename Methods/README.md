@@ -36,7 +36,7 @@ We describe here how the effect of group was removed prior to performing the PCA
 ## DE models with clinical covariates controlled
 
 - Once the covariates (PC1 and growth rate) are identified, we eliminate them as a necessary predictor in DE models.
-   - get PC1 after group regressed out as well as growth rate.
+   - get PC1 after group regressed out as well as growth rate from metadata.
 
    ```
    pca_tmp<-pca$rotation
@@ -47,24 +47,24 @@ We describe here how the effect of group was removed prior to performing the PCA
    - Using limma, the Bioconductor R pcakage:
       - build a design matrix.
 
-    `design<-model.matrix(~pc1+growth_rate+group)`
+         `design<-model.matrix(~pc1+growth_rate+group)`
 
       - Given a linear model fit, compute moderated t-statistics, moderated F-statistic, and log-odds of differential expression by empirical Bayes moderation of the standard errors towards a common value.
 
 
-      `fit <- eBayes(lmFit(input_data, design))`
+         `fit <- eBayes(lmFit(input_data, design))`
 
-    - Then, apply FDR < 5% and log2(fold change) > 1 (or fold change > 2).
+      - Then, apply FDR < 5% and log2(fold change) > 1 (or fold change > 2).
 
-      ```
-      qval.cutoff=0.05;
-      FC.cutoff=2
-      x1=topTable(fit, coef="group2", n=nrow(genes), p.value=qval.cutoff, adjust.method="BH", genelist=genes)
-      ```
+         ```
+         qval.cutoff=0.05;
+         FC.cutoff=2
+         x1=topTable(fit, coef="group2", n=nrow(genes), p.value=qval.cutoff, adjust.method="BH", genelist=genes)
+         ```
 
-    - This gives 25 genes for difference between nDM vs. nPDR in high glucose.
+   - This gives 25 genes for difference between nDM vs. nPDR in high glucose.
 
-       ![Screenshot](figure/figure5.png)
+   ![Screenshot](figure/figure5.png)
 
 
  Describe the threshold that
