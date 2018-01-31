@@ -38,11 +38,11 @@ We describe here how the effect of group was removed prior to performing the PCA
 - Once the covariates (PC1 and growth rate) are identified, we eliminate them as a necessary predictor in DE models.
    - get PC1 after group regressed out as well as growth rate from metadata.
 
-   ```
-   pca_tmp<-pca$rotation
-   pc1<-pca_tmp$PC1
-   growth_rate<-meta[,"GROWTH_RATE"]
-   ```
+      ```
+      pca_tmp<-pca$rotation
+      pc1<-pca_tmp$PC1
+      growth_rate<-meta[,"GROWTH_RATE"]
+      ```
 
    - Using limma, the Bioconductor R pcakage:
       - build a design matrix.
