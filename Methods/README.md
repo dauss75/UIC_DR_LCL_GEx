@@ -18,7 +18,7 @@ Describe how the effect of group was removed prior to performing PCA.
 
    ![Screenshot](figure/figure1.png "an example of variance explained for the high glucose data")
 
-   3. compute Pearson's correlation coefficient (r) between eigenvector and metadata. The p-value of 0.05 is considered as significant.
+   3. compute Pearson's correlation coefficient (r) between eigenvector and metadata. The p-value of 0.05 (1.3 in log scale) is considered as significant.
 
       `cor(pca$rotation, metadata)`
 
@@ -28,7 +28,7 @@ Describe how the effect of group was removed prior to performing PCA.
 
       `summary(lm(data_input~group))$residual`
 
-   5. Then, repeat the step in ii.
+   5. Then, repeat the step in ii and iii.
    ![Screenshot](figure/figure3.png)
    ![Screenshot](figure/figure4.png)
 
