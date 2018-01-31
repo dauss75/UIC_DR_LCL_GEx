@@ -22,11 +22,15 @@ Describe how the effect of group was removed prior to performing PCA.
 
       `cor(pca$rotation, metadata)`
 
+    ![Screenshot](figure/figure2.png)
+
    4. Now, remove the group by retrieving the residual data from applying the linear regression model that yields the difference between the gene expression data of the dependent variable group (g) and the fitted values (g').
 
       `summary(lm(data_input~group))$residual`
 
    5. Then, repeat the step in ii.
+   ![Screenshot](figure/figure3.png)
+   ![Screenshot](figure/figure4.png)
 
 
 
