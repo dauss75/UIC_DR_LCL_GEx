@@ -4,7 +4,7 @@
 and PCs for identifying important covariates to condition on for differential expression (DE) analyses.
 Describe how the effect of group was removed prior to performing PCA.
 
-   - 1. we run PCA using the R PCA function [prcomp](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/prcomp.html) with metadata by: (1) using all the data and (2) after the group removed such that we can identify which covariate is the confounding factor.
+   - we run PCA using the R PCA function [prcomp](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/prcomp.html) with metadata by: (1) using all the data and (2) after the group removed such that we can identify which covariate is the confounding factor.
 
       `prcomp(data_input, scale = FALSE, center = TRUE)`
 
