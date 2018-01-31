@@ -17,7 +17,7 @@ Describe how the effect of group was removed prior to performing PCA.
 
       `summary(lm(data_input~group))$residual`
 
-   5. Then, repeat the step 2
+   5. Then, repeat the step in ii
 
 
 
