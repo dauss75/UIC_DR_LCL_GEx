@@ -16,7 +16,7 @@ Describe how the effect of group was removed prior to performing PCA.
 
    2. as a sanity check, explore the variance explained for each PC to look at the distribution.
 
-   ![Screenshot](figure/figure1.png "an example shapshot from the high glucose data")
+   ![Screenshot](figure/figure1.png "an example of variance explained for the high glucose data")
 
    3. compute Pearson's correlation coefficient (r) between eigenvector and metadata. The p-value of 0.05 is considered as significant.
 
