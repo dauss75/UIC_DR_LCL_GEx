@@ -66,6 +66,9 @@ We describe here how the effect of group was removed prior to performing the PCA
 
    ![Screenshot](figure/figure5.png)
 
+---
+below is Mike's notes:
+---
 
  Describe the threshold that
 will be used determine significance (FDR levels). Address how the repeated measures are being
