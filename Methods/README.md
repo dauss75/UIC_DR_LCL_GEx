@@ -4,16 +4,20 @@
 and PCs for identifying important covariates to condition on for differential expression (DE) analyses.
 Describe how the effect of group was removed prior to performing PCA.
 
-   - we run PCA using the R PCA function [prcomp](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/prcomp.html) with metadata by: (1) using all the data and (2) after the group removed such that we can identify which covariate is the confounding factor.
+   - 1. run PCA using the R PCA function [prcomp](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/prcomp.html) with metadata by: (1) using all the data and (2) after the group removed such that we can identify which covariate is the confounding factor.
 
       `prcomp(data_input, scale = FALSE, center = TRUE)`
 
-   - 1. as a sanity check, explore the variance explained for each PC to look at the distribution.
-   - 2. compute Pearson's correlation coefficient (r) between eigenvector and metadata. The p-value of 0.05 is considered as significant.
-            `cor(pca$rotation, metadata)`
-   - 3. Now, remove the group by retrieving the residual data from applying the linear regression model that yields the difference between the gene expression data of the dependent variable group (g) and the fitted values (g')
-            `summary(lm(data_input~group))$residual`
-   - 4. Then, repeat the step 2
+   - 2. as a sanity check, explore the variance explained for each PC to look at the distribution.
+   - 3. compute Pearson's correlation coefficient (r) between eigenvector and metadata. The p-value of 0.05 is considered as significant.
+
+      `cor(pca$rotation, metadata)`
+
+   - 4. Now, remove the group by retrieving the residual data from applying the linear regression model that yields the difference between the gene expression data of the dependent variable group (g) and the fitted values (g')
+
+      `summary(lm(data_input~group))$residual`
+
+   - 5. Then, repeat the step 2
 
 
 
