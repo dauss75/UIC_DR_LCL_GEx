@@ -1,5 +1,18 @@
 # Methods
 
+## Table of Contents
+
+- [PCA and Covariates](#pca_and_covariates)
+- [Test MINID](#Test-MINID)
+- [Process steps](#Process-steps)
+    - [Log on to BDDS Globus Genomics](#log-on-to-bdds-globus-genomics)
+    - [Generate API Key](#generate-api-key)
+    - [Import published workflows](#import-published-workflows)
+    - [Execute analysis](#execute-analysis)
+    - [Results](#results)
+
+## PCA and Covariates
+
 - principal components analysis (PCA) and association testing between covariates
 and PCs for identifying important covariates to condition on for differential expression (DE) analyses.
 Describe how the effect of group was removed prior to performing PCA.
@@ -9,15 +22,18 @@ Describe how the effect of group was removed prior to performing PCA.
       `prcomp(data_input, scale = FALSE, center = TRUE)`
 
    2. as a sanity check, explore the variance explained for each PC to look at the distribution.
+
+   ![Screenshot](figure/figure1.eps)
+
    3. compute Pearson's correlation coefficient (r) between eigenvector and metadata. The p-value of 0.05 is considered as significant.
 
       `cor(pca$rotation, metadata)`
 
-   4. Now, remove the group by retrieving the residual data from applying the linear regression model that yields the difference between the gene expression data of the dependent variable group (g) and the fitted values (g')
+   4. Now, remove the group by retrieving the residual data from applying the linear regression model that yields the difference between the gene expression data of the dependent variable group (g) and the fitted values (g').
 
       `summary(lm(data_input~group))$residual`
 
-   5. Then, repeat the step in ii
+   5. Then, repeat the step in ii.
 
 
 
