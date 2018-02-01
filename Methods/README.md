@@ -42,7 +42,8 @@ We describe here how the effect of group was removed prior to performing the PCA
 
 
    2. with replicates
-      - build a design matrix using the [model.matrix](https://www.rdocumentation.org/packages/stats/versions/3.4.3/topics/model.matrix) function with both replicates (purple box) and treatment (red box)
+      - build a design matrix using the [model.matrix](https://www.rdocumentation.org/packages/stats/versions/3.4.3/topics/model.matrix) function with both replicates (purple box) and treatment (red box). The "C" and "T" in treatment stands for high glucose and standard glucose, respectively.
+
          ```
          subject="PDR_replicate”
          PDR<-input_data[,grep("PDR",colnames(input_data))]
@@ -53,13 +54,17 @@ We describe here how the effect of group was removed prior to performing the PCA
          ```
         ![Screenshot](figure/figure6.png)
 
+        Then, use the [duplicateCorrelation](http://web.mit.edu/~r/current/arch/i386_linux26/lib/R/library/limma/html/dupcor.html) function to estimate the correlation between technical replicates using a mixed linear model that returns a consensus correlation, a robust average of the individual correlation. We use the the value to [lmFit](http://web.mit.edu/~r/current/arch/i386_linux26/lib/R/library/limma/html/lmFit.html).
+
          ```
          corfit <- duplicateCorrelation(PDR, block = targets$Subject)
          fit <-lmFit(PDR, design, block=targets$Subject, correlation=corfit$consensus.correlation)
          fit<-eBayes(fit)
          ```
 
+         ![Screenshot](figure/figure7.png "overall p- and q-value distribution")
 
+         ![Screenshot](figure/figure8.png "Volcano plot for DE genes")  
 
 ## DE models with clinical covariates controlled
 
