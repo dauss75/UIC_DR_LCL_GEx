@@ -49,10 +49,13 @@ We describe here how the effect of group was removed prior to performing the PCA
          fit <- lmFit(avg_PDR, design)
          fit<- eBayes(fit)
          ```
-         ![Screenshot](figure/Figure9.png "design matrix")
-         <img src="https://github.com/dauss75/UIC_DR_LCL_GEx/blob/master/Methods/figure/Figure9.png" width="300">
+         <!--![Screenshot](figure/Figure9.png "design matrix")
+
          ![Screenshot](figure/figure10.png "overall p-value distribution")
-         ![Screenshot](figure/figure11.png "volcano plot")
+         ![Screenshot](figure/figure11.png "volcano plot")-->
+         <img src="https://github.com/dauss75/UIC_DR_LCL_GEx/blob/master/Methods/figure/Figure9.png" width="300">
+         <img src="https://github.com/dauss75/UIC_DR_LCL_GEx/blob/master/Methods/figure/figure10.png" width="300">
+         <img src="https://github.com/dauss75/UIC_DR_LCL_GEx/blob/master/Methods/figure/figure11.png" width="300">
 
    2. with replicates
       - build a design matrix using the [model.matrix](https://www.rdocumentation.org/packages/stats/versions/3.4.3/topics/model.matrix) function with both replicates (purple box) and treatment (red box).
