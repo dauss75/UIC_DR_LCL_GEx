@@ -17,21 +17,21 @@ We describe here how the effect of group was removed prior to performing the PCA
 
    2. as a sanity check, explore the variance explained for each PC to look at the distribution.
 
-   ![Screenshot](figure/figure1.png "an example of variance explained for the high glucose data")
+   ![Screenshot](figure/figure1.png "an example of variance explained for the high glucose data"){:height="700px" width="400px"}
 
    3. compute Pearson's correlation coefficient (r) between eigenvector and metadata. The p-value of 0.05 (1.3 in log scale) is considered as significant.
 
       `pca_meta_cor<-cor(pca$rotation, metadata)`
 
-    ![Screenshot](figure/figure2.png width="400" height="790")
+    ![Screenshot](figure/figure2.png)
 
    4. Now, remove the group by retrieving the residual data from applying the linear regression model that yields the difference between the gene expression data of the dependent variable group (g) and the fitted values (g').
 
       `input_data_group_removed<-summary(lm(input_data~group))$residual`
 
    5. Then, repeat the step in ii and iii.
-   ![Screenshot](figure/figure3.png width="400" height="790")
-   ![Screenshot](figure/figure4.png width="400" height="790")
+   ![Screenshot](figure/figure3.png)
+   ![Screenshot](figure/figure4.png)
 
 ## DE models with and without collapsing data
 
