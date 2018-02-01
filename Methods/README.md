@@ -18,7 +18,7 @@ We describe here how the effect of group was removed prior to performing the PCA
    2. as a sanity check, explore the variance explained for each PC to look at the distribution.
 
    <!--![Screenshot](figure/figure1.png "an example of variance explained for the high glucose data")-->
-   <img src="https://github.com/dauss75/UIC_DR_LCL_GEx/blob/master/Methods/figure/figure1.png" width="500">
+      <img src="https://github.com/dauss75/UIC_DR_LCL_GEx/blob/master/Methods/figure/figure1.png" width="500">
 
    3. compute Pearson's correlation coefficient (r) between eigenvector and metadata. The p-value of 0.05 (1.3 in log scale) is considered as significant.
 
@@ -26,7 +26,7 @@ We describe here how the effect of group was removed prior to performing the PCA
 
     <!--![Screenshot](figure/figure2.png)-->
 
-    <img src="https://github.com/dauss75/UIC_DR_LCL_GEx/blob/master/Methods/figure/figure2.png" width="500">
+       <img src="https://github.com/dauss75/UIC_DR_LCL_GEx/blob/master/Methods/figure/figure2.png" width="500">
 
    4. Now, remove the group by retrieving the residual data from applying the linear regression model that yields the difference between the gene expression data of the dependent variable group (g) and the fitted values (g').
 
@@ -35,9 +35,9 @@ We describe here how the effect of group was removed prior to performing the PCA
    5. Then, repeat the step in ii and iii.
   <!-- ![Screenshot](figure/figure3.png)
    ![Screenshot](figure/figure4.png)-->
-   <img src="https://github.com/dauss75/UIC_DR_LCL_GEx/blob/master/Methods/figure/figure3.png" width="500">
+      <img src="https://github.com/dauss75/UIC_DR_LCL_GEx/blob/master/Methods/figure/figure3.png" width="500">
 
-   <img src="https://github.com/dauss75/UIC_DR_LCL_GEx/blob/master/Methods/figure/figure4.png" width="500">
+      <img src="https://github.com/dauss75/UIC_DR_LCL_GEx/blob/master/Methods/figure/figure4.png" width="500">
 
 ## DE models with and without collapsing data
 
@@ -78,7 +78,7 @@ We describe here how the effect of group was removed prior to performing the PCA
          design <- model.matrix(~Replicates+Treat)
          ```
       <!--  ![Screenshot](figure/figure6.png "design matrix")-->
-      <img src="https://github.com/dauss75/UIC_DR_LCL_GEx/blob/master/Methods/figure/figure6.png" width="500">
+         <img src="https://github.com/dauss75/UIC_DR_LCL_GEx/blob/master/Methods/figure/figure6.png" width="500">
 
         Then, use the [duplicateCorrelation](http://web.mit.edu/~r/current/arch/i386_linux26/lib/R/library/limma/html/dupcor.html) function to estimate the correlation between technical replicates using a mixed linear model that returns a consensus correlation, a robust average of the individual correlation. We use the the value to [lmFit](http://web.mit.edu/~r/current/arch/i386_linux26/lib/R/library/limma/html/lmFit.html).
 
@@ -132,7 +132,7 @@ We describe here how the effect of group was removed prior to performing the PCA
 
    <!--![Screenshot](figure/figure5.png)-->
 
-   <img src="https://github.com/dauss75/UIC_DR_LCL_GEx/blob/master/Methods/figure/figure5.png" width="500">
+      <img src="https://github.com/dauss75/UIC_DR_LCL_GEx/blob/master/Methods/figure/figure5.png" width="500">
 
 
 
