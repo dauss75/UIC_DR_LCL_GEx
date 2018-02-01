@@ -119,4 +119,4 @@ We describe here how the effect of group was removed prior to performing the PCA
 
    ![Screenshot](figure/figure5.png)
 
-## gene set enrichment analysis
+## gene set enrichment analysis (GSEA)
