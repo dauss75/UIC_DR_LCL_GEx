@@ -9,7 +9,7 @@
 
 ## PCA and Covariates
 
-- To identify important covariates to condition on the differential expression (DE) analyses, we performed principal components analysis (PCA) and association testing between covariates and PCs .
+To identify important covariates to condition on the differential expression (DE) analyses, we performed principal components analysis (PCA) and association testing between covariates and PCs .
 We describe here how the effect of group was removed prior to performing the PCA.
 
    1. run PCA using the PCA function [prcomp](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/prcomp.html) in R with metadata by: (1) using all the gene expression data and (2) after the patients group removed such that we can identify which covariate is the confounding factor.
@@ -36,7 +36,7 @@ We describe here how the effect of group was removed prior to performing the PCA
 
 ## DE models with and without collapsing data
 
-- We evaluated the gene expression data in two different ways for DE analysis using (1) collapsing into a mean and (2) all replicates that fitted into a mixed model taking into account the correlation between repeated measures. We show an example with PDR that compares the gene expression between high glucose and stand glucose.
+We evaluated the gene expression data in two different ways for DE analysis using (1) collapsing into a mean and (2) all replicates that fitted into a mixed model taking into account the correlation between repeated measures. We show an example with PDR that compares the gene expression between high glucose and stand glucose.
 
    1. with a mean data
       - build a disign matrix using the [model.matrix](https://www.rdocumentation.org/packages/stats/versions/3.4.3/topics/model.matrix) function for paired treatment.
@@ -88,7 +88,7 @@ We describe here how the effect of group was removed prior to performing the PCA
 
 ## DE models with clinical covariates controlled
 
-- Once the covariates (PC1 and growth rate) are identified, we eliminate them as a necessary predictor in DE models.
+Once the covariates (PC1 and growth rate) are identified, we eliminate them as a necessary predictor in DE models.
    - get PC1 after group regressed out as well as growth rate from metadata.
 
       ```
@@ -121,14 +121,13 @@ We describe here how the effect of group was removed prior to performing the PCA
 
 ## gene set enrichment analysis (GSEA)
 
-- This GSEA analysis was performed by using preranked gene list in the [javaGSEA Desktop Application](https://github.com/GSEA-MSigDB/gsea-desktop) tool, available at http://software.broadinstitute.org/gsea/downloads.jsp, along with the c2 (curated gene sets) and c5 (gene ontology (GO) gene sets) gene set collections from the [Molecular Signature Database](http://software.broadinstitute.org/gsea/msigdb/index.jsp). Specific steps are as follows:
+This GSEA analysis was performed by using preranked gene list in the [javaGSEA Desktop Application](https://github.com/GSEA-MSigDB/gsea-desktop) tool, available at http://software.broadinstitute.org/gsea/downloads.jsp, along with the c2 (curated gene sets) and c5 (gene ontology (GO) gene sets) gene set collections from the [Molecular Signature Database](http://software.broadinstitute.org/gsea/msigdb/index.jsp). Specific steps are as follows:
 
-   - Input: ranked genes by this formula: sign(Fold Change) x - log10(p-value).  Full gene list is provided and duplicated genes are removed resulting 11579 genes
-   - Parameter setting
-      - permutations are done by gene set
-      - The runs are based on weighted (ranked).
-      - Gene sets database
-         - c2.all.v6.0, curated from various sources such as online pathway databases, the biomedical literature, and knowledge of domain experts
-         - c5.all.v6.0,  based on GO terms in the collection belong to one of three GO ontologies: molecular function (MF), cellular component (CC) or biological process (BP)
-
-      - Min and max gene set size: 15 and 500
+- Input: ranked genes by this formula: sign(Fold Change) x - log10(p-value).  Full gene list is provided and duplicated genes are removed resulting 11579 genes
+- Parameter setting
+   - permutations are done by gene set
+   - The runs are based on weighted (ranked).
+   - Gene sets database
+      - c2.all.v6.0, curated from various sources such as online pathway databases, the biomedical literature, and knowledge of domain experts
+      - c5.all.v6.0,  based on GO terms in the collection belong to one of three GO ontologies: molecular function (MF), cellular component (CC) or biological process (BP)
+   - Min and max gene set size: 15 and 500
