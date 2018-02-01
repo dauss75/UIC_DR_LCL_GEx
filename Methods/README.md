@@ -3,6 +3,7 @@
 ## Table of Contents
 
 - [PCA and Covariates](#pca-and-covariates)
+- [DE models with and without collapsing data](#de-models-with-and-without-collapsing-data)
 - [DE models with clinical covariates controlled](#de-models-with-clinical-covariates-controlled)
 
 ## PCA and Covariates
@@ -31,6 +32,33 @@ We describe here how the effect of group was removed prior to performing the PCA
    5. Then, repeat the step in ii and iii.
    ![Screenshot](figure/figure3.png)
    ![Screenshot](figure/figure4.png)
+
+## DE models with and without collapsing data
+
+- We evaluated the gene expression data in two different ways for DE analysis using (1) collapsing into a mean and (2) all replicates that fitted into a mixed model taking into account the correlation between repeated measures. We show an example with PDR that compares the gene expression between high glucose and stand glucose.
+
+   1. with a mean data
+
+
+
+   2. with replicates
+      - build a design matrix using the [model.matrix](https://www.rdocumentation.org/packages/stats/versions/3.4.3/topics/model.matrix) function with both replicates (purple box) and treatment (red box)
+         ```
+         subject="PDR_replicate”
+         PDR<-input_data[,grep("PDR",colnames(input_data))]
+         targets<-readTargets(paste(PhenotypeDir,"hg_sg_",subject,"_target.txt", sep=''))
+         Treat <- factor(targets$Treatment,levels=c("C","T"))
+         Replicates <- factor(targets$rep)
+         design <- model.matrix(~Replicates+Treat)
+         ```
+        ![Screenshot](figure/figure6.png)
+
+         ```
+         corfit <- duplicateCorrelation(PDR, block = targets$Subject)
+         fit <-lmFit(PDR, design, block=targets$Subject, correlation=corfit$consensus.correlation)
+         fit<-eBayes(fit)
+         ```
+
 
 
 ## DE models with clinical covariates controlled
@@ -66,12 +94,13 @@ We describe here how the effect of group was removed prior to performing the PCA
 
    ![Screenshot](figure/figure5.png)
 
+
+
 ---
 below is Mike's notes:
 ---
 
- Describe the threshold that
-will be used determine significance (FDR levels). Address how the repeated measures are being
+. Address how the repeated measures are being
 treated for analysis. Collapsing into a mean vs. fitted into a mixed model that takes into account
 the correlation between repeated measures.
 
