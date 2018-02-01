@@ -5,6 +5,7 @@
 - [PCA and Covariates](#pca-and-covariates)
 - [DE models with and without collapsing data](#de-models-with-and-without-collapsing-data)
 - [DE models with clinical covariates controlled](#de-models-with-clinical-covariates-controlled)
+- [gene set enrichment analysis (GSEA)](#gene-set-enrichment-analysis)
 
 ## PCA and Covariates
 
@@ -118,26 +119,4 @@ We describe here how the effect of group was removed prior to performing the PCA
 
    ![Screenshot](figure/figure5.png)
 
-
-
----
-below is Mike's notes:
----
-
-. Address how the repeated measures are being
-treated for analysis. Collapsing into a mean vs. fitted into a mixed model that takes into account
-the correlation between repeated measures.
-
-For genes found to be interesting based on the significance criteria above, we will investigate
-if any of the association might be explained by a covariate that was not included in the model.
-These include: A1C, Sex, Age, Duration, EBV copy number, BMI, LDL, HDL, Pulse, SBP, DBP, Triglycerides
-
-Describe how results will be summarized. E.g. volcano plots, etc.
-
-Summarize significant genes found in each group and how to determine which are shared and unique.
-a.    Consider more liberal thresholds for allowing genes to be DE in different groups.
- i.         Require same direction?
-ii.         Bonferroni threshold.
-iii.         Calculate FDR in significant genes.
-
-Describe gene set enrichment analysis (GSEA)
+## gene set enrichment analysis
