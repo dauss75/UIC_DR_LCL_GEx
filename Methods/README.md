@@ -23,15 +23,15 @@ We describe here how the effect of group was removed prior to performing the PCA
 
       `pca_meta_cor<-cor(pca$rotation, metadata)`
 
-    ![Screenshot](figure/figure2.png)
+    ![Screenshot](figure/figure2.png width="400" height="790")
 
    4. Now, remove the group by retrieving the residual data from applying the linear regression model that yields the difference between the gene expression data of the dependent variable group (g) and the fitted values (g').
 
       `input_data_group_removed<-summary(lm(input_data~group))$residual`
 
    5. Then, repeat the step in ii and iii.
-   ![Screenshot](figure/figure3.png)
-   ![Screenshot](figure/figure4.png)
+   ![Screenshot](figure/figure3.png width="400" height="790")
+   ![Screenshot](figure/figure4.png width="400" height="790")
 
 ## DE models with and without collapsing data
 
