@@ -49,7 +49,7 @@ We describe here how the effect of group was removed prior to performing the PCA
          fit <- lmFit(avg_PDR, design)
          fit<- eBayes(fit)
          ```
-         ![Screenshot](figure/figure9.png "design matrix")
+         ![Screenshot](figure/Figure9.png "design matrix")
          ![Screenshot](figure/figure10.png "overall p-value distribution")
          ![Screenshot](figure/figure11.png "volcano plot")
 
