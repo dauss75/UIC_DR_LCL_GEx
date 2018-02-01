@@ -131,3 +131,5 @@ This GSEA analysis was performed by using preranked gene list in the [javaGSEA D
       - c2.all.v6.0, curated from various sources such as online pathway databases, the biomedical literature, and knowledge of domain experts
       - c5.all.v6.0,  based on GO terms in the collection belong to one of three GO ontologies: molecular function (MF), cellular component (CC) or biological process (BP)
    - Min and max gene set size: 15 and 500
+
+   ![Screenshot](figure/figure12.png)
