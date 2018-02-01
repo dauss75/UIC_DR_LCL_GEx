@@ -38,21 +38,34 @@ We describe here how the effect of group was removed prior to performing the PCA
 - We evaluated the gene expression data in two different ways for DE analysis using (1) collapsing into a mean and (2) all replicates that fitted into a mixed model taking into account the correlation between repeated measures. We show an example with PDR that compares the gene expression between high glucose and stand glucose.
 
    1. with a mean data
-
-
+      - build a disign matrix using the [model.matrix](https://www.rdocumentation.org/packages/stats/versions/3.4.3/topics/model.matrix) function for paired treatment.
+         ```
+         subject="avg_PDR"
+         avg_PDR<-cbind(avg_PDR_hg,avg_PDR_sg)
+         targets<-readTargets(paste("avg_hg_sg_",subject,"_target.txt", sep=''))
+         Paired <- factor(targets$paired)
+         Treat <- factor(targets$Treatment)
+         design <- model.matrix(~Paired+Treat)
+         fit <- lmFit(avg_PDR, design)
+         fit<- eBayes(fit)
+         ```
+         ![Screenshot](figure/figure9.png "design matrix")
+         ![Screenshot](figure/figure10.png "overall p-value distribution")
+         ![Screenshot](figure/figure11.png "volcano plot")
 
    2. with replicates
-      - build a design matrix using the [model.matrix](https://www.rdocumentation.org/packages/stats/versions/3.4.3/topics/model.matrix) function with both replicates (purple box) and treatment (red box). The "C" and "T" in treatment stands for high glucose and standard glucose, respectively.
+      - build a design matrix using the [model.matrix](https://www.rdocumentation.org/packages/stats/versions/3.4.3/topics/model.matrix) function with both replicates (purple box) and treatment (red box).
+      Note that "C" and "T" in treatment stand for high glucose and standard glucose, respectively.
 
          ```
          subject="PDR_replicate”
          PDR<-input_data[,grep("PDR",colnames(input_data))]
-         targets<-readTargets(paste(PhenotypeDir,"hg_sg_",subject,"_target.txt", sep=''))
+         targets<-readTargets(paste("hg_sg_",subject,"_target.txt", sep=''))
          Treat <- factor(targets$Treatment,levels=c("C","T"))
          Replicates <- factor(targets$rep)
          design <- model.matrix(~Replicates+Treat)
          ```
-        ![Screenshot](figure/figure6.png)
+        ![Screenshot](figure/figure6.png "design matrix")
 
         Then, use the [duplicateCorrelation](http://web.mit.edu/~r/current/arch/i386_linux26/lib/R/library/limma/html/dupcor.html) function to estimate the correlation between technical replicates using a mixed linear model that returns a consensus correlation, a robust average of the individual correlation. We use the the value to [lmFit](http://web.mit.edu/~r/current/arch/i386_linux26/lib/R/library/limma/html/lmFit.html).
 
@@ -64,11 +77,9 @@ We describe here how the effect of group was removed prior to performing the PCA
 
          ![Screenshot](figure/figure7.png "overall p- and q-value distribution")
 
-         overall p- and q-value distribution
 
          ![Screenshot](figure/figure8.png "Volcano plot for DE genes")
 
-         Volcano plot for DE genes 
 
 
 ## DE models with clinical covariates controlled
