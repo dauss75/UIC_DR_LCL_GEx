@@ -82,7 +82,7 @@ We describe here how the effect of group was removed prior to performing the PCA
 
          ![Screenshot](figure/figure8.png "Volcano plot for DE genes")
 
-Underscores
+_
    - conclusion: we find that the gene rank from both analysis is about the same except the statistical power is much stronger with the data using all replicates.
 
 
