@@ -5,7 +5,7 @@
 - [PCA and Covariates](#pca-and-covariates)
 - [DE models with and without collapsing data](#de-models-with-and-without-collapsing-data)
 - [DE models with clinical covariates controlled](#de-models-with-clinical-covariates-controlled)
-- [gene set enrichment analysis (GSEA)](#gene-set-enrichment-analysis)
+- [gene set enrichment analysis (GSEA)](#gene-set-enrichment-analysis-gsea)
 
 ## PCA and Covariates
 
@@ -120,3 +120,15 @@ We describe here how the effect of group was removed prior to performing the PCA
    ![Screenshot](figure/figure5.png)
 
 ## gene set enrichment analysis (GSEA)
+
+- This GSEA analysis was performed by using preranked gene list in the [javaGSEA Desktop Application](https://github.com/GSEA-MSigDB/gsea-desktop) tool, available at http://software.broadinstitute.org/gsea/downloads.jsp, along with the c2 (curated gene sets) and c5 (gene ontology (GO) gene sets) gene set collections from the [Molecular Signature Database](http://software.broadinstitute.org/gsea/msigdb/index.jsp). Specific steps are as follows:
+
+   - Input: ranked genes by this formula: sign(Fold Change) x - log10(p-value).  Full gene list is provided and duplicated genes are removed resulting 11579 genes
+   - Parameter setting
+      - permutations are done by gene set
+      - The runs are based on weighted (ranked).
+      - Gene sets database
+         - c2.all.v6.0, curated from various sources such as online pathway databases, the biomedical literature, and knowledge of domain experts
+         - c5.all.v6.0,  based on GO terms in the collection belong to one of three GO ontologies: molecular function (MF), cellular component (CC) or biological process (BP)
+
+      - Min and max gene set size: 15 and 500
