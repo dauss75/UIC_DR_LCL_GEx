@@ -64,7 +64,12 @@ We describe here how the effect of group was removed prior to performing the PCA
 
          ![Screenshot](figure/figure7.png "overall p- and q-value distribution")
 
-         ![Screenshot](figure/figure8.png "Volcano plot for DE genes")  
+         overall p- and q-value distribution
+
+         ![Screenshot](figure/figure8.png "Volcano plot for DE genes")
+
+         Volcano plot for DE genes 
+
 
 ## DE models with clinical covariates controlled
 
