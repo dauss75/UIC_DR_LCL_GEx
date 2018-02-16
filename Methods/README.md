@@ -6,11 +6,12 @@
 - [DE models with and without collapsing data](#de-models-with-and-without-collapsing-data)
 - [DE models with clinical covariates controlled](#de-models-with-clinical-covariates-controlled)
 - [gene set enrichment analysis (GSEA)](#gene-set-enrichment-analysis-gsea)
+- [Predixcan](#predixcan)
 
 ## PCA and Covariates
 
 To identify important covariates to condition on the differential expression (DE) analyses, we performed principal components analysis (PCA) and association testing between covariates and PCs .
-We describe here how the effect of group was removed prior to performing the PCA.
+We describe here how the effect of group (i.e. PDR, nPDR) was removed prior to performing the PCA.
 
    1. run PCA using the PCA function [prcomp](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/prcomp.html) in R with metadata by: (1) using all the gene expression data and (2) after the patients group removed such that we can identify which covariate is the confounding factor.
 
@@ -133,3 +134,24 @@ This GSEA analysis was performed by using preranked gene list in the [javaGSEA D
    - Min and max gene set size: 15 and 500
 
    ![Screenshot](figure/figure12.png)
+
+-------------
+## Predixcan
+
+- We download the predict DB data ([v7](GTEx-V7_HapMap-2017-11-29.tar.gz)) from [here](http://predictdb.hakyimlab.org/).
+- Then, we run predixcan for prediction and association using the following command:
+
+```
+./PrediXcan.py --predict --assoc --linear \
+               --weights weights/file_name.db \
+               --dosages genotype \
+               --samples samples.txt \
+               --pheno phenotype/igrowth.txt \
+               --output_prefix results/file_name
+```
+
+Here is a real example we used:
+
+   '''
+   ./PrediXcan.py --predict --assoc --linear --weights weights_v7/gtex_v7_Adipose_Subcutaneous_imputed_europeans_tw_0.5_signif.db --dosages genotype --samples samples/sample.txt  --pheno phenotype/igrowth.txt --output_prefix results_v7/gtex_v7_Adipose_Subcutaneous
+   '''
