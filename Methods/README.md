@@ -153,5 +153,5 @@ This GSEA analysis was performed by using preranked gene list in the [javaGSEA D
 Here is a real example we used:
 
    '''
-   ./PrediXcan.py --predict --assoc --linear --weights weights_v7/gtex_v7_Adipose_Subcutaneous_imputed_europeans_tw_0.5_signif.db --dosages genotype --samples samples/sample.txt  --pheno phenotype/igrowth.txt --output_prefix results_v7/gtex_v7_Adipose_Subcutaneous
+   ./PrediXcan.py --predict --assoc --linear --weights weights_v7/gtex_v7_Adipose_Subcutaneous_imputed_europeans_tw_0.5_signif.db --dosages genotype --samples sample.txt  --pheno phenotype/igrowth.txt --output_prefix results_v7/gtex_v7_Adipose_Subcutaneous
    '''
